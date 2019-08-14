@@ -1,2 +1,2 @@
 # es-state
-State management for Javascript projects
+State management for Javascript projects.
