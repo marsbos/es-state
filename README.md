@@ -3,8 +3,8 @@ Easy state management, inspired by Redux and React.
 
 ### Features
 * Compact syntax; create store and reducers in one function call.
-* An actions proxy which allows dispatching from everywhere.
-* Observe only slices of your state.
+* An actions proxy which allows dispatching actions from everywhere.
+* Observe only slices of your state instead of invoking all observers on a state change.
 * Optional lit-element/lit-html directive for easy updating from an observer.
 
 ### Examples
@@ -38,6 +38,8 @@ import { observeTodos, observeCounter, observeSelectedTodo } from  '../state/tod
 import { commitCallback } from '../src/lit-commit-callback.js';
 import './todo-add.js';
 
+// You can add as many observers to an observer as you like.
+
 // Whenever 'counter' changes, only the 'observeCounter' will be called.
 // Likewise, when 'todos' changes, only observer 'observeTodos' will be called.
 ...
@@ -59,6 +61,9 @@ import './todo-add.js';
 import { actions } from '../src/es-state.js';
 ...
 // We import 'actions', so we can 'dispatch' whatever action we like.
+// Actions proxy finds the reducers which are registered for the action.
+// Note that actions are not bound to one 'useState', they can access all 'useStates'.
+
 render() {
   return html`
     <div>
