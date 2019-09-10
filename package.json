@@ -1,0 +1,29 @@
+{
+  "name": "es-state",
+  "version": "1.0.0",
+  "description": "Easy state management",
+  "main": "src/es-state.js",
+  "dependencies": {
+    "chance": "^1.0.18",
+    "express": "^4.17.1",
+    "lit-element": "^2.2.1",
+    "lit-html": "^1.1.2"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.5.5",
+    "@babel/preset-env": "^7.5.5",
+    "@babel/register": "^7.5.5",
+    "rimraf": "^3.0.0",
+    "rollup": "^1.20.3",
+    "rollup-plugin-node-resolve": "^5.2.0",
+    "rollup-plugin-re": "^1.0.7",
+    "rollup-plugin-terser": "^5.1.1"
+  },
+  "scripts": {
+    "build-app": "rimraf ./app && rollup -c rollup.build.app.js",
+    "build-state": "rimraf ./dist && rollup -c rollup.build.js",
+    "start-server": "node server.js"
+  },
+  "author": "Marcel Bos",
+  "license": "ISC"
+}
